@@ -1,0 +1,66 @@
+﻿<Window x:Class="TicTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToe"
+        mc:Ignorable="d" Name="MyWindow"
+        Title="MainWindow" Height="500" Width="700">
+    
+    <Grid Name="MyGrid">
+        <Grid.Resources>
+            <ControlTemplate x:Key="MyButton">
+                <Grid>
+                    <Rectangle Fill="{TemplateBinding Background}"/>
+                    
+                </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True"/>
+                        </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="FirstColum"  Width="*"/>
+            <ColumnDefinition Name="SecondColumn" Width="*"/>
+            <ColumnDefinition Name="ThirdColumn" Width="*"/>
+            <ColumnDefinition Name="FourthColumn" Width="*"/>
+            <ColumnDefinition Name="FifthColumn" Width="*"/>
+            <ColumnDefinition Name="SixthColumn" Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Name="FirstRow" Height="*"/>
+            <RowDefinition Name="SecondRow" Height="*"/>
+            <RowDefinition Name="ThirdRow" Height="*"/>
+            <RowDefinition Name="FouthRow" Height="*"/>
+            <RowDefinition Name="SixthRow"  Height="*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Name="MyRectangle" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" 
+                   Stroke="Black" StrokeThickness="4"/>
+      <Line Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Stroke="Black" StrokeThickness="4"
+            X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" Grid.ColumnSpan="3"/>
+      <Line Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Stroke="Black" StrokeThickness="4"
+            X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" Grid.ColumnSpan="3"/>
+
+      <Line Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Stroke="Black" StrokeThickness="4"
+            Grid.RowSpan="3"  Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}"/>
+      <Line Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Stroke="Black" StrokeThickness="4"
+            Grid.RowSpan="3"  Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}"/>
+
+        <Button Template="{StaticResource MyButton}" Name="Button1" Grid.Row="1" Grid.Column="1" Margin="4,4,4,4" Background="White" Click="ButtonClicked"/>
+        <Button Template="{StaticResource MyButton}" Name="Button2" Grid.Row="1" Grid.Column="2" Margin="0,4,4,4" Background="White" Click="ButtonClicked"/>
+        <Button Template="{StaticResource MyButton}" Name="Button3" Grid.Row="1" Grid.Column="3" Margin="0,4,4,4" Background="White" Click="ButtonClicked"/>
+
+        <Button Template="{StaticResource MyButton}" Name="Button4" Grid.Row="2" Grid.Column="1" Margin="4,0,4,4" Background="White" Click="ButtonClicked"/>
+        <Button Template="{StaticResource MyButton}" Name="Button5" Grid.Row="2" Grid.Column="2" Margin="0,0,4,4" Background="White" Click="ButtonClicked"/>
+        <Button Template="{StaticResource MyButton}" Name="Button6" Grid.Row="2" Grid.Column="3" Margin="0,0,4,4" Background="White" Click="ButtonClicked"/>
+
+        <Button Template="{StaticResource MyButton}" Name="Button7" Grid.Row="3" Grid.Column="1" Margin="4,0,4,4" Background="White" Click="ButtonClicked"/>
+        <Button Template="{StaticResource MyButton}" Name="Button8" Grid.Row="3" Grid.Column="2" Margin="0,0,4,4" Background="White" Click="ButtonClicked"/>
+        <Button Template="{StaticResource MyButton}" Name="Button9" Grid.Row="3" Grid.Column="3" Margin="0,0,4,4" Background="White" Click="ButtonClicked"/>
+        
+        <RadioButton Name="X" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Content="X"/>
+        <RadioButton Name="O" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top" Content="O" Margin="10,0,0,0"/>
+    </Grid>
+
+</Window>
